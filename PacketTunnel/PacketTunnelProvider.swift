@@ -39,7 +39,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             setenv("SSL_CERT_FILE", certPath?.path, 1)
             DispatchQueue.global(qos: .userInteractive).async {
                 signal(SIGPIPE, SIG_IGN)
-                run_leaf(url.path)
+                //这个id 还不知道是什么东西
+                leaf_run(1, url.path)
             }
             completionHandler(nil)
         }
